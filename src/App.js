@@ -25,13 +25,16 @@ import FetchServices from './components/FetchServices';
 import EditServices from './components/EditServices';
 import Login from './components/Login';
 import UserDashboard from './components/UserDashboard';
+import Logout from './components/Logout';
+
+
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar/>
+      {/* <NavBar/> */}
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/counter" element={<Counter />} />
@@ -50,7 +53,12 @@ function App() {
           <Route path="/services/get/:id" element={<FetchServices/>}/>
           <Route path="/services/update/:id" element={<EditServices/>}/>
           <Route path="/user/login" element={<Login/>}/>
-          <Route path="/user/dashboard" element={<UserDashboard />} />
+          <Route path="/user/dashboard" element={<UserDashboard/>}/>
+          <Route path="/user/logout" element={<Logout/>}/>
+         
+         
+          
+          
          
           
         </Routes>

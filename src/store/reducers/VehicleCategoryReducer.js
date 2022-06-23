@@ -1,3 +1,5 @@
+import { VehicleCategory_FETCHBYID, VehicleCategory_FETCH_ALL, VehicleCategory_SAVE, VehicleCategory_UPDATE } from "../actions/ActionConstants";
+
 const initialState = {
     vehicleCategories: [],
     vehicleCategory:null,
@@ -7,13 +9,13 @@ const initialState = {
 }
 
 export default function vehicleCategoryReducer(state = initialState, action) {
-    if (action.type === '/vehicleCategory/all') {
+    if (action.type === VehicleCategory_FETCH_ALL) {
         return ({
             ...state,
             vehicleCategories: action.payload
         })
     }
-    if (action.type === '/vehicleCategory/get') {
+    if (action.type === VehicleCategory_FETCHBYID) {
         return (
             {
                 ...state,
@@ -21,7 +23,7 @@ export default function vehicleCategoryReducer(state = initialState, action) {
             }
         )
     }
-    if (action.type === '/vehicleCategory/save') {
+    if (action.type === VehicleCategory_SAVE) {
         return (
             {
                 ...state,
@@ -29,7 +31,7 @@ export default function vehicleCategoryReducer(state = initialState, action) {
             }
         )
     }
-    if (action.type === '/vehicleCategory/update') {
+    if (action.type === VehicleCategory_UPDATE) {
         console.log(action.payload);
         return ({
             ...state,

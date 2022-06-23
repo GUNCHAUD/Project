@@ -1,12 +1,14 @@
 import axios from "axios";
+import { editVehicleCategory, fetchAllVehicleCategory, fetchVehicleById, saveVehicleCategory } from "../../services/VehicleCategoryService";
+import { VehicleCategory_FETCHBYID, VehicleCategory_FETCH_ALL, VehicleCategory_SAVE, VehicleCategory_UPDATE } from "./ActionConstants";
 
 export function getAllVehicleCategory() {
     return (dispatch) => {
-        return axios.get("http://localhost:8080/vehicleCategory/all").then(
+        return fetchAllVehicleCategory().then(
 
             resp => {
                 dispatch({
-                    type: "/vehicleCategory/all",
+                    type: VehicleCategory_FETCH_ALL,
                     payload: resp.data
                 })
             }
@@ -15,22 +17,22 @@ export function getAllVehicleCategory() {
 }
 export function getVehicleCategoryById(id) {
     return (dispatch) => {
-        return axios.get("http://localhost:8080/vehicleCategory/" + id).then(
+        return fetchVehicleById(id).then(
             resp => {
                 dispatch({
-                    type: "/vehicleCategory/get",
+                    type: VehicleCategory_FETCHBYID,
                     payload: resp.data
                 })
             }
         )
     }
 }
-export function CreateVehicleCategory(payload) {
+export function CreateVehicleCategory(vehicleCategory) {
     return (dispatch) =>{
-        return axios.post("http://localhost:8080/vehicleCategory/save",payload).then(
+        return saveVehicleCategory(vehicleCategory).then(
             resp =>{
                 dispatch({
-                    type:"/vehicleCategory/save",
+                    type:VehicleCategory_SAVE,
                     payload:resp.data
                 })
             }
@@ -39,12 +41,12 @@ export function CreateVehicleCategory(payload) {
 
 }
 
-export function updateVehicleCategory(payload) {
+export function updateVehicleCategory(vehicleCategory) {
     return (dispatch) =>{
-        return axios.put("http://localhost:8080/vehicleCategory/update",payload).then(
+        return editVehicleCategory(vehicleCategory).then(
             resp =>{
                 dispatch({
-                    type:"/vehicleCategory/update",
+                    type:VehicleCategory_UPDATE,
                     payload:resp.data
                 })
             }

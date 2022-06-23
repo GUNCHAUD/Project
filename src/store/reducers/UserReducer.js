@@ -31,7 +31,7 @@ export default function userReducer(state = initialState, action) {
         )
     }
     if (action.type === USER_UPDATE) {
-        console.log(action.payload);
+       
         return ({
             ...state,
             updateUser: action.payload

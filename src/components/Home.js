@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from '../Image/car3.jpg';
+import img from '../Image/car4.jpg';
+import NavBar from "./NavBar";
 
 
 
@@ -19,10 +20,10 @@ function Home(){
            
 
             }}>
-        
-        
+               <NavBar/>
+     
         <br></br><br></br><br></br><br></br><br></br>
-            <h1 className="text-info">Welcome to Evehicle Showroom</h1><br></br>
+            <h1 className="text-dark">Welcome to Evehicle Showroom</h1><br></br>
 
               
              {/* <FetchAllUserTwo/> */}

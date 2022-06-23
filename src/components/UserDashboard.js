@@ -1,4 +1,5 @@
 import React from 'react';
+import UserNavar from './UserNavbar';
 
 function UserDashboard() {
 
@@ -9,6 +10,7 @@ function UserDashboard() {
         <div>
             {myUser !== null ?
                 <div>
+                   <UserNavar/>
                     <h4>Welcome {JSON.parse(myUser).userName}</h4>
                     <h2>User  DashBoard</h2>       
 

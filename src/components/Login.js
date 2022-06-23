@@ -1,7 +1,9 @@
+
+import img from '../Image/theme2.jpg';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import { doUserLogin } from '../store/actions/AuthenticationActions';
+import { doUserLogin } from '../store/actions/AuthenticationAction';
 
 function Login() {
 
@@ -23,6 +25,21 @@ function Login() {
 
 
     return (
+        <div div className="bg_image"
+
+        style={{
+
+            backgroundImage:`url(${img})`,
+
+            backgroundSize: "cover",
+
+            height: "90vh"
+
+           
+
+            }}>
+
+           
         <div className="container">
             {
                 loggedInUser !== null ?
@@ -46,7 +63,8 @@ function Login() {
 
                     </div>
             }
-
+        
+        </div>
         </div>
     )
 }

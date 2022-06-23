@@ -1,11 +1,13 @@
 import axios from "axios";
+import { fetchAllEnquiry, getEnquiryByMail, saveEnquiry } from "../../services/EnquiryServices";
+import { ENQUIRY_FETCHBYEMAIL, ENQUIRY_FETCH_ALL, ENQUIRY_SAVE } from "./ActionConstants";
 
 export function getTotalEnquiry() {
     return (dispatch) => {
-        return axios.get("http://localhost:8080/enquiry/all").then(
+        return fetchAllEnquiry().then(
             resp => {
                 dispatch({
-                    type: "/enquiry/all",
+                    type: ENQUIRY_FETCH_ALL,
                     payload: resp.data
                 })
             }
@@ -13,12 +15,12 @@ export function getTotalEnquiry() {
     }
 }
 
-export function CreateEnquiry(payload) {
+export function CreateEnquiry(enquiry) {
     return (dispatch) =>{
-        return axios.post("http://localhost:8080/enquiry/save",payload).then(
+        return saveEnquiry(enquiry).then(
             resp =>{
                 dispatch({
-                    type:"/enquiry/save",
+                    type:ENQUIRY_SAVE,
                     payload:resp.data
                 })
             }
@@ -29,10 +31,10 @@ export function CreateEnquiry(payload) {
 
 export function fetchEnquiryByEmail(email) {
     return (dispatch) => {
-        return axios.get("http://localhost:8080/enquiry/bymail/" + email).then(
+        return getEnquiryByMail(email).then(
             resp => {
                 dispatch({
-                    type: "/enquiry/get",
+                    type: ENQUIRY_FETCHBYEMAIL,
                     payload: resp.data
                 })
             }

@@ -1,3 +1,5 @@
+import { ENQUIRY_FETCHBYEMAIL, ENQUIRY_FETCH_ALL, ENQUIRY_SAVE } from "../actions/ActionConstants";
+
 const initialState = {
     enquiries: [],
     enquiryList:[],
@@ -6,13 +8,13 @@ const initialState = {
 }
 
 export default function enquiryReducer(state = initialState, action) {
-    if (action.type === '/enquiry/all') {
+    if (action.type === ENQUIRY_FETCH_ALL) {
         return ({
             ...state,
             enquiries: action.payload
         })
     }
-    if (action.type === '/enquiry/get') {
+    if (action.type === ENQUIRY_FETCHBYEMAIL) {
         return (
             {
                 ...state,
@@ -20,7 +22,7 @@ export default function enquiryReducer(state = initialState, action) {
             }
         )
     }
-    if (action.type === '/enquiry/save') {
+    if (action.type === ENQUIRY_SAVE) {
         return (
             {
                 ...state,
